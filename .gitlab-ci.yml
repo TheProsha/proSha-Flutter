@@ -1,0 +1,34 @@
+# .gitlab-ci.yml for Flutter project CI
+# Place this file at the root of your repository
+
+# Define pipeline stages (you can add 'build', 'deploy', etc. if needed)
+stages:
+  - test
+
+# The main job that runs your tests
+flutter_test:
+  stage: test                          # Run in the 'test' stage
+  image: cirrusci/flutter:3.10         # Use a Docker image with Flutter pre-installed (update version as needed)
+  script:
+    - flutter pub get                  # Install Dart/Flutter dependencies
+    - flutter test                     # Run all Flutter test suites
+  only:
+    - branches                         # Run CI for every branch push
+    - merge_requests                   # Also run CI for merge requests (like "pull requests")
+  tags:
+    # Remove or edit these if you are not using GitLab Runners with tags
+    # - docker
+
+# You can expand this file to include more jobs for build, lint, deploy, etc.
+
+stages:
+  - test
+build_and_test:
+  stage: test
+  image: cirrusci/flutter:3.10
+  script:
+    - flutter pub get
+    - flutter test
+  only:
+    - branches
+    - merge_requests

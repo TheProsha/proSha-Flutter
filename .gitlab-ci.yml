@@ -8,7 +8,7 @@ stages:
 # The main job that runs your tests
 flutter_test:
   stage: test                          # Run in the 'test' stage
-  image: cirrusci/flutter:3.10         # Use a Docker image with Flutter pre-installed (update version as needed)
+  image: cirrusci/flutter:stable       # Use a Docker image with Flutter pre-installed (update version as needed)
   script:
     - flutter pub get                  # Install Dart/Flutter dependencies
     - flutter test                     # Run all Flutter test suites
@@ -25,7 +25,7 @@ stages:
   - test
 build_and_test:
   stage: test
-  image: cirrusci/flutter:3.10
+  image: cirrusci/flutter:stable
   script:
     - flutter pub get
     - flutter test

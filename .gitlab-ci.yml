@@ -6,7 +6,8 @@ stages:
 
 flutter_test:
   stage: test
-  image: cirrusci/flutter:3.19.6      # Use a valid Flutter Docker image; change '3.19.6' as needed
+  # image: cirrusci/flutter:3.19.6      # Use a valid Flutter Docker image; change '3.19.6' as needed
+  image: cirrusci/flutter:stable      # Use a valid Flutter Docker image; change '3.19.6' as needed
   script:
     - flutter pub get
     - flutter test
